@@ -1,0 +1,49 @@
+
+/******JSON File******************/
+{'others': 
+[
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/d6/15/b8/284087106.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/16/4a/84/284088302.jpg'}, 
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/59/94/db/284087780.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/c3/77/f2/284087764.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/90/id.pro.es.image.master/54/b8/1a/720699515.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/90/id.pro.es.image.master/1b/db/01/720699657.jpg'}, 
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/0e/46/13/720699660.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/27/00/19/984130929.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/cd/c4/3d/984131372.jpg'}, 
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/07/b1/23/984131506.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/f0/58/cf/984131507.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/2e/9d/7b/984131508.jpg'}, 
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/b5/3e/58/984131509.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/c6/20/38/984131510.jpg'},
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/73/b5/1e/984131519.jpg'}, 
+    {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/0b/8e/ce/984131520.jpg'}],
+    'cover_image': {'url': 'https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/d6/15/b8/284087106.jpg'}}
+
+//Code to be here
+
+/*******DELUGE CODE************/
+
+//******/********FUNCTION for the use case**********/
+string Seller_Leads.Photos_from_photolist()
+{
+	id = 57616000017561108;
+	f_seller_lead = Seller_Leads[ID == 57616000017561108];
+	photo_lst = f_seller_lead.Photo_List.getJSON("others").toJSONList();
+	X = "";
+	for each  rec in photo_lst
+	{
+		X = X + "<a href='" + rec.get("url") + "' target='_blank'> <img style='padding:2px;width:150px;height:200px' src='" + rec.get("url") + "'></img></a>";
+		//info X;
+	}
+	//  info "<div>" + X + "<br></div>";
+	//  f_seller_lead.plain5="<div>" + X + "<br></div>".toString();
+	return X;
+}
+
+/*********Calling the function on load of the form **********/
+if(is_testing_record == true)
+{
+	input.plain5 = "<div>" + thisapp.Seller_Leads.Photos_from_photolist() + "<br></div>".toString();
+}
+
