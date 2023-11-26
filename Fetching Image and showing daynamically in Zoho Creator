@@ -1,0 +1,14 @@
+//Fetching the images in rich text field
+if(fet.Picture != "")
+{
+	imageString = fet.Picture;
+	srcIndex = imageString.indexOf(" src");
+	lowEqualIndex = imageString.indexOf(" lowqual =");
+	urlString = imageString.subString(srcIndex,lowEqualIndex);
+	urlString = urlString.remove("src =");
+	urlString = urlString.replaceAll("/sharedBy/appLinkName/",zoho.appuri);
+	urlString = urlString.replaceAll("viewLinkName","Kitchen_Accessories1");
+	urlString = urlString.replaceAll("fieldName","Picture");
+	row.Image="<div style='text-align:center'><img src = " + urlString + " ></img></div>";
+	// alert row.Image;
+}
