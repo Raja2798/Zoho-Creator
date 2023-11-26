@@ -1,0 +1,11 @@
+/******Deluge Code*********/
+var=RAJA||123#$Senthuraa;
+//To remove the special characters in the variable 
+Var_A=var.replaceAll("[/\-\(\)_@#\^!\$%\&\*:;`~| ]","");
+//Return value will be
+Var_A=RAJA 123 Senthuraa
+/*****In URL*********/
+//In the below Url i tried to remove the special characters in contact name
+p1 = ("https://zfrmz.eu/vN4q0i1yo26aqPvjTfOJ?ImmoRef=" + appres.IMMO_Ref + "&add=" + appres.Address) + "&date_time=" + appres.Start
+    + "&contact=" + appres.Contact_Name.First_Name.replaceALL("[/\-\(\)_@#\^!\$%\&\*:;`~|]","")
+    + " " + appres.Contact_Name.Last_Name.replaceALL("[/\-\(\)_@#\^!\$%\&\*:;`~|]","") + "&phone=" + appres.Phone + "&vali=JQdz25fAhpuGHSoIF&sellertype=" + appres.Type_of_Contact;
